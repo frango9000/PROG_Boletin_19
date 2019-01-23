@@ -9,6 +9,7 @@ public class App2 {
     notas.mostrar();
     System.out.println("Aprobados: " +notas.aprobados());
     System.out.println("Reprobados: " +notas.reprobados());
+    System.out.println("Nota media: " +notas.media());
     System.out.println("Nota mas alta: " +notas.notaMax());
             
     }
