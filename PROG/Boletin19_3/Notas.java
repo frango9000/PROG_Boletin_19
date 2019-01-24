@@ -24,7 +24,7 @@ public final class Notas {
 
     public void nombreAlumnos() {
         for (int i = 0; i < alumnos.length; i++) {
-            alumnos[i] = "Alumno " + i;
+            alumnos[i] = "Alumno" + i;
         }
     }
 
@@ -43,28 +43,25 @@ public final class Notas {
     public void mostrar() {
         mostrar(notas, alumnos);
     }
-    
-    public void mostrarFiltoIndices(int[] indices){
-        for(int i=0; i<indices.length;i++){
-            System.out.println(indices[i] + " : " + notas[indices[i]] + " : " + alumnos[indices[i]] );
-            
+
+    public void mostrarFiltoIndices(int[] indices) {
+        for (int i = 0; i < indices.length; i++) {
+            System.out.println(indices[i] + " : " + notas[indices[i]] + " : " + alumnos[indices[i]]);
+
         }
-    }
-    public int[] indicesNotasAscendente(){// to.do
-        int[] indicesNotasAscendentes = new int[notas.length];
-        for(int i=0;i<notas.length;i++){
-            
-        }
-        return indicesNotasAscendentes;
     }
 
-    public int nota(String alumno) {
+    public int indiceDeAlumno(String alumno) {
         for (int i = 0; i < alumnos.length; i++) {
             if (alumno.equalsIgnoreCase(alumnos[i])) {
-                return notas[i];
+                return i;
             }
         }
         return -1;
+    }
+
+    public int notaDeAlumno(String alumno) {
+        return notas[indiceDeAlumno(alumno)];
     }
 
     public static int countAprobados(int[] array) {
@@ -95,35 +92,36 @@ public final class Notas {
         return countReprobados(notas);
     }
 
-    public static int[] indexAprobados(int[] array){
+    public static int[] indexAprobados(int[] array) {
         int[] indexAprobados = new int[countAprobados(array)];
-        for(int i =0,j=0 ; i<array.length;i++){
-            if(array[i]>4){
-                indexAprobados[j]=i;
+        for (int i = 0, j = 0; i < array.length; i++) {
+            if (array[i] > 4) {
+                indexAprobados[j] = i;
                 j++;
             }
         }
         return indexAprobados;
     }
-    
-    public int[] indexAprobados(){
-       return indexAprobados(notas);
+
+    public int[] indexAprobados() {
+        return indexAprobados(notas);
     }
-    
-    public static int[] indexReprobados(int[] array){
+
+    public static int[] indexReprobados(int[] array) {
         int[] indexReprobados = new int[countReprobados(array)];
-        for(int i =0,j=0 ; i<array.length;i++){
-            if(array[i]<5){
-                indexReprobados[j]=i;
+        for (int i = 0, j = 0; i < array.length; i++) {
+            if (array[i] < 5) {
+                indexReprobados[j] = i;
                 j++;
             }
         }
         return indexReprobados;
     }
-    public int[] indexReprobados(){
-       return indexReprobados(notas);
+
+    public int[] indexReprobados() {
+        return indexReprobados(notas);
     }
-    
+
     public static float media(int[] array) {
         int total = 0, notas = 0;
         for (int nota : array) {
