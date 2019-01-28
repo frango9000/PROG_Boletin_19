@@ -8,6 +8,14 @@ public final class Notas {
     int[] notas;
     String[] alumnos;
 
+    public String[] getAlumnos() {
+        return alumnos;
+    }
+
+    public int[] getNotas() {
+        return notas;
+    }
+
     public Notas(int numeroDeNotas) {
         notas = new int[numeroDeNotas];
         alumnos = new String[numeroDeNotas];
@@ -18,7 +26,7 @@ public final class Notas {
     public void randNotas() {
         Random rand = new Random();
         for (int i = 0; i < notas.length; i++) {
-            notas[i] = rand.nextInt(10);
+            notas[i] = rand.nextInt(11);
         }
     }
 
@@ -157,6 +165,19 @@ public final class Notas {
 
     public int notaMax() {
         return notaMax(notas);
+    }
+    public int[] notasOrdenadas() {
+        int[] array = notas.clone();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    int aux = array[i];
+                    array[i] = array[j];
+                    array[j] = aux;
+                }
+            }
+        }
+        return array;
     }
 
 }

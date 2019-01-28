@@ -1,7 +1,5 @@
 package PROG.Boletin19_3;
-//@author fsancheztemprano
 
-import PROG.Boletin19_2.*;
 import java.util.Arrays;
 import java.util.Scanner;
 //@author fsancheztemprano
@@ -10,20 +8,26 @@ public class App3 {
 
     public static void main(String[] args) {
 
+        System.out.println("Mostrar Notas: ");
         Notas notas = new Notas(10);
         notas.mostrar();
         
-        System.out.println(notas.notaDeAlumno("Alumno3"));
+        System.out.println("\nAlumno 3 nota: " + notas.notaDeAlumno("Alumno3"));
         
+        System.out.println("\nAprobados: ");
         notas.mostrarFiltoIndices(notas.indexAprobados());
         
-        System.out.println(Arrays.toString(ArraysLib.arrayOrdenado(notas.notas)));
+        System.out.println("\nNotas Ordenadas:");
+        System.out.println(Arrays.toString(notas.notasOrdenadas()));
+        
         
         Scanner scan = new Scanner(System.in);
         System.out.print("Escribe el nombre del alumno : ");
-        String nombre = scan.next();        
-        System.out.println(notas.notaDeAlumno(nombre));
-
+        String nombre = scan.nextLine();        
+        
+        System.out.println("Nota del alumno : " + nombre + " : " + notas.notaDeAlumno(nombre));
+        
+        System.out.println("Mostrar Notas: ");
+        notas.mostrar();
     }
-
 }
