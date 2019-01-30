@@ -18,8 +18,8 @@ public class App3 {
         notas.mostrarFiltoIndices(notas.indexAprobados());
         
         System.out.println("\nNotas Ordenadas:");
-        System.out.println(Arrays.toString(notas.notasOrdenadas()));
-        
+        notas.notasOrdenadas();
+        notas.mostrar();
         
         Scanner scan = new Scanner(System.in);
         System.out.print("Escribe el nombre del alumno : ");

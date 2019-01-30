@@ -166,18 +166,20 @@ public final class Notas {
     public int notaMax() {
         return notaMax(notas);
     }
-    public int[] notasOrdenadas() {
-        int[] array = notas.clone();
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] > array[j]) {
-                    int aux = array[i];
-                    array[i] = array[j];
-                    array[j] = aux;
+    public void notasOrdenadas() {
+        for (int i = 0; i < notas.length; i++) {
+            for (int j = i + 1; j < notas.length; j++) {
+                if (notas[i] > notas[j]) {
+                    int auxI = notas[i];
+                    notas[i] = notas[j];
+                    notas[j] = auxI;
+                    
+                    String auxS =alumnos[i];
+                    alumnos[i] = alumnos[j];
+                    alumnos[j] = auxS;                   
                 }
             }
         }
-        return array;
     }
 
 }
